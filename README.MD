@@ -1,0 +1,1 @@
+A CLI bookmark manager written in python
