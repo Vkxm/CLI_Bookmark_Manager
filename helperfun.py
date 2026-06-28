@@ -19,7 +19,19 @@ def Add():
     print("New bookmark added")
  
 def remove():
-    print("This bookmark deleted")
+    del_by_name=input("enter name of website you want to delete ")
+    with open('bookmarks.json','r', encoding='utf-8') as rfile:
+        bookmarks_db = json.load(rfile)
+    for i in range(0,len(bookmarks_db)):
+        if del_by_name in bookmarks_db[i]:
+            bookmarks_db.pop(i)
+            break
+    with open('bookmarks.json','w', encoding='utf-8') as wfile:
+        json.dump(bookmarks_db,wfile)
+    print("bookmark deleted")
+
+
+
 
 def edit():
     print("this bookmark edited")
